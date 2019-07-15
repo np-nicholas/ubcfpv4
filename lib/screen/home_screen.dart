@@ -6,6 +6,7 @@ import 'package:ubcfpv3/screen/login_screen.dart';
 import 'package:ubcfpv3/screen/me_screen.dart';
 import 'package:ubcfpv3/screen/pro_screen.dart';
 import 'package:ubcfpv3/screen/stroe_screen.dart';
+import 'package:ubcfpv3/screen/thank_screen.dart';
 import 'package:ubcfpv3/screen/user.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 

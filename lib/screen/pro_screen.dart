@@ -57,10 +57,15 @@ class _ProScreenState extends State<ProScreen> {
           )
 
 
+
         ),
 
 
+
+
+
       )
+
     );
 
 
@@ -68,11 +73,11 @@ class _ProScreenState extends State<ProScreen> {
   Widget PostsUI(String image, String description, String data, String time){
     return new Card(
 
-      elevation: 10.0,
-      margin: EdgeInsets.all(15.0),
+      elevation: 4.0,
+      margin: EdgeInsets.all(10.0),
 
       child: new Container(
-        padding: new EdgeInsets.all(14.0),
+        padding: new EdgeInsets.all(10.0),
         child:  new Column(
           crossAxisAlignment: CrossAxisAlignment.start,
 
@@ -109,6 +114,12 @@ class _ProScreenState extends State<ProScreen> {
                     style: Theme.of(context).textTheme.subhead,
                     textAlign: TextAlign.center,
                   ),
+            SizedBox(height: 10.0,),
+            ListTile(
+              title: Text('dsdsd',textAlign: TextAlign.center,),
+              onTap: (){},
+              trailing: IconButton(icon: Icon(Icons.more_vert,), onPressed: (){})
+            )
           ],
         ),
       ),
