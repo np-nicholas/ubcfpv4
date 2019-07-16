@@ -32,6 +32,7 @@ class _ProScreenState extends State<ProScreen> {
           DATA[individuakey]['description'],
           DATA[individuakey]['date'],
           DATA[individuakey]['time'],
+          DATA[individuakey]['shopname'],
       );
           postsList.add(posts);
         }
@@ -47,12 +48,12 @@ class _ProScreenState extends State<ProScreen> {
       home: Scaffold (
         body: Center(
 
-          child: postsList.length == 0 ? new Text("No Blog Post availablr") : new ListView.builder
+          child: postsList.length == 0 ? new Text("กำลังโหลดโปรโมชั่น") : new ListView.builder
             (
               itemCount: postsList.length,
               itemBuilder: (_, index)
               {
-                return PostsUI(postsList[index].image, postsList[index].description, postsList[index].date, postsList[index].time,);
+                return PostsUI(postsList[index].image, postsList[index].description, postsList[index].date, postsList[index].time,postsList[index].shopname,);
               }
           )
 
@@ -70,7 +71,7 @@ class _ProScreenState extends State<ProScreen> {
 
 
   }
-  Widget PostsUI(String image, String description, String data, String time){
+  Widget PostsUI(String image, String description, String data, String time, String shopname){
     return new Card(
 
       elevation: 4.0,
@@ -88,18 +89,12 @@ class _ProScreenState extends State<ProScreen> {
              children: <Widget>[
                new Text
                      (
-                     data,
-                     style: Theme.of(context).textTheme.subtitle,
-                     textAlign: TextAlign.center,
+                     shopname,
+                     style: TextStyle(fontSize: 17.0,fontWeight: FontWeight.bold),
                    ),
-
-                   new Text
-                     (
-                     time,
-                     style: Theme.of(context).textTheme.subtitle,
-                     textAlign: TextAlign.center,
-                   )
+               IconButton(icon: Icon(Icons.more_horiz), onPressed: (){})
              ],
+
            ),
 
             SizedBox(height: 10.0,),
@@ -111,14 +106,27 @@ class _ProScreenState extends State<ProScreen> {
                   new Text
                     (
                     description,
-                    style: Theme.of(context).textTheme.subhead,
+                    style: TextStyle(fontSize: 17.0),
                     textAlign: TextAlign.center,
                   ),
+
+
             SizedBox(height: 10.0,),
+
+            new Text
+              (
+              data + "  " + time,
+              style: TextStyle(fontSize: 15.0,color: Colors.black54),
+              textAlign: TextAlign.center,
+            ),
             ListTile(
-              title: Text('dsdsd',textAlign: TextAlign.center,),
+              title: new Text
+                (
+                "เข้าดูรายละเอียดเพิ่มเติม",
+                style: TextStyle(fontSize: 17.0),
+                textAlign: TextAlign.center,
+              ),
               onTap: (){},
-              trailing: IconButton(icon: Icon(Icons.more_vert,), onPressed: (){})
             )
           ],
         ),

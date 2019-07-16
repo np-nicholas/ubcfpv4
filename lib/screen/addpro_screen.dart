@@ -27,6 +27,7 @@ class _AddproScreenStatr extends State <AddproScreen>
 {
   File sampleImage;
   String _myValue;
+  String _myName;
   String prourl;
   final formKey = new GlobalKey<FormState>();
   final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
@@ -82,6 +83,11 @@ class _AddproScreenStatr extends State <AddproScreen>
   }
 }
 
+
+
+
+
+
 void saveToDatabase(url) {
   var dbTimeKey = new DateTime.now();
   var formatData = new DateFormat('MMM d, yyyy');
@@ -95,6 +101,7 @@ void saveToDatabase(url) {
   var data =  {
     "image": url,
     "description": _myValue,
+    "shopname": _myName,
     "date": date,
     "time": time,
   };
@@ -160,8 +167,36 @@ void goToHomeScreen() async
 
             Image.file(sampleImage, height: 310.0,width: 660.0, ),
 
-            SizedBox(height: 15.0,),
+            SizedBox(height: 5.0,),
 
+            FlatButton.icon(
+                color: Colors.brown[400],
+                textColor: Colors.white,
+                onPressed: getImage,
+                icon: Icon(Icons.add_a_photo),
+                label: Text(
+                  '  เพิ่มรูปภาพโลโก้ร้านค้า',
+                  style: TextStyle(fontSize: 20.0),
+                  textAlign: TextAlign.center,
+                )),
+
+
+            TextFormField
+              (
+              maxLines: 2,
+              decoration: new InputDecoration(labelText: 'shopname'),
+
+              validator: (value){
+                return value.isEmpty ? 'กรุณาใส่รายละเอียดเกี่ยวกับโปรโมชั่น' :null;
+              },
+
+              onSaved: (value){
+                return _myName = value;
+              },
+
+            ),
+
+            SizedBox(height: 15.0,),
             TextFormField
               (
               maxLines: 2,
@@ -176,8 +211,6 @@ void goToHomeScreen() async
               },
 
             ),
-
-            SizedBox(height: 15.0,),
 
             RaisedButton
               (
