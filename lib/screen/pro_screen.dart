@@ -122,7 +122,7 @@ class _ProScreenState extends State<ProScreen> {
             ListTile(
               title: new Text
                 (
-                "เข้าดูรายละเอียดเพิ่มเติม",
+                "เข้าดูรายละเอียดเพิ่มเติม ++ ",
                 style: TextStyle(fontSize: 17.0),
                 textAlign: TextAlign.center,
               ),
